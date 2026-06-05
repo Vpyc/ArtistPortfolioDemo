@@ -1,27 +1,87 @@
-# ArtistPortfolio
+# Artist Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+Веб-портфолио художника, построенное на **Angular 18** с использованием контент-ориентированной (content-driven) архитектуры.
 
-## Development server
+![Angular](https://img.shields.io/badge/Angular-18-DD0031?logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6?logo=typescript)
+![Node.js](https://img.shields.io/badge/Node.js-18.19+-339933?logo=nodedotjs)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Запуск проекта
 
-## Code scaffolding
+### Установка зависимостей:
+`npm install`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Запуск приложеня
+`npm run demo`,
+где `demo` в `package.json`:</br>
+`"demo": "ng serve --configuration=demo"`.
 
-## Build
+### Сборка проекта
+`ng build`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🧠 Архитектура
+Проект построен вокруг контент-ориентированного подхода.
 
-## Running unit tests
+Каждая страница описывается как конфигурационный объект:
+```
+export const ABOUT_PAGE: Page = {
+  groups: [
+    {
+      sections: [
+        createTextSection(...),
+        createSplitSection(...),
+        createTimelineSection(...),
+      ]
+    }
+  ]
+};
+```
+Страницы состоят из групп, а группы состоят из секций.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Рендеринг происходит динамически через PageRenderer, который выбирает Angular-компонент по типу секции.
 
-## Running end-to-end tests
+### 🧩 Система секций
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Поддерживаемые типы секций:
 
-## Further help
+- Text
+- Split (изображение + текст)
+- Gallery
+- Timeline
+- Image
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Каждая секция реализована как отдельный Angular-компонент и создаётся через factory-функции.
+
+Добавление новой секции происходит по схеме:
+
+Добавить интерфейс секции
+Добавить enum типа секции
+Создать Angular компонент
+Добавить factory функцию
+Зарегистрировать в PageRenderer
+
+## 🏗 Структура проекта
+```
+src/
+├── app/
+│   ├── content/
+│   │   ├── demo/        # демо-данные (публичная версия)
+│   │   ├── dev/         # рабочие данные (закрытая версия)
+│   │   └── shared/      # общие утилиты и модели
+│   ├── shared/          # переиспользуемые UI и логика
+│   ├── pages/           # страницы приложения
+│   └── core/            # сервисы и инфраструктура
+├── assets/
+│   ├── demo/            # демо-изображения
+│   └── dev/             # реальные изображения
+```
+
+## 🔧 Ключевые особенности
+- Полностью контент-ориентированная архитектура
+- Разделение demo / dev данных
+- Page-driven подход
+- Dynamic component rendering через NgComponentOutlet
+- Factory-паттерн для секций
+- Строгая типизация TypeScript
+- Angular Signals для реактивности
+- Отсутствие логики страниц в компонентах

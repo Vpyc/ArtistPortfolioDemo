@@ -1,0 +1,11 @@
+@if (categoryPage()) {
+  <app-hero-section [imageUrl]="categoryPage().hero?.backgroundImage ?? ''" [size]="HeroSizeEnum.Half">
+    <div hero-title class="hero__title">
+      <h1>{{ categoryPage().hero?.title }}</h1>
+    </div>
+  </app-hero-section>
+
+  <app-page-renderer [page]="categoryPage()"></app-page-renderer>
+
+  <app-link-button-section/>
+}

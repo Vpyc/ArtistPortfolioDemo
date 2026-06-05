@@ -1,0 +1,22 @@
+<app-hero-section [imageUrl]="content.hero.imageUrl">
+  <div hero-title class="hero__title">
+    <h1>{{ content.hero.title[0] }}</h1>
+    <h1>{{ content.hero.title[1] }}</h1>
+  </div>
+
+  <h2 hero-subtitle class="hero__subtitle">
+    {{ content.hero.subtitle }}
+  </h2>
+
+  <div hero-actions class="hero__actions">
+    <button class="btn btn-primary" (click)="scrollToHomePreviews()">
+      {{ content.hero.ctaPrimary }}
+    </button>
+
+    <a class="btn btn-outline" [routerLink]="['/contacts']">
+      {{ content.hero.ctaSecondary }}
+    </a>
+  </div>
+</app-hero-section>
+<app-home-preview-section />
+<app-link-button-section />

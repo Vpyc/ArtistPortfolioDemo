@@ -1,0 +1,15 @@
+<section class="hero"
+         [class.hero--half]="size() === 'half'"
+         [style.background-image]="'url(' + imageUrl() + ')'">
+
+  <div class="hero__content">
+
+    <ng-content select="[hero-title]"></ng-content>
+
+    <ng-content select="[hero-subtitle]"></ng-content>
+
+    <ng-content select="[hero-actions]"></ng-content>
+
+  </div>
+
+</section>

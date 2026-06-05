@@ -1,0 +1,89 @@
+<header class="header"
+        [class.header--scrolled]="isScrolled()">
+  <div class="container flex flex-justify-space-between flex-align-center header__container ">
+
+    <div class="header__logo">
+      <a routerLink="/" (click)="closeMenu()">LOGO</a>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="flex flex-align-center header__nav">
+      @for (item of navigation(); track item.label) {
+        @if (item.children) {
+          <div class="nav-item">
+            <span class="nav-link">
+              {{ item.label }} ▾
+            </span>
+
+            <ul class="dropdown">
+              @for (child of item.children; track child.link) {
+                <li>
+                  <a [routerLink]="child.link">
+                    {{ child.label }}
+                  </a>
+                </li>
+              }
+            </ul>
+          </div>
+        } @else {
+          <a
+            [routerLink]="item.link"
+            class="nav-link"
+          >
+            {{ item.label }}
+          </a>
+        }
+      }
+    </nav>
+
+    <!-- BURGER BUTTON (Visible only on mobile) -->
+    <button
+      class="header__burger"
+      [class.header__burger--open]="isMenuOpen()"
+      (click)="toggleMenu()"
+      aria-label="Menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="flex flex-align-center flex-justify-center menu"
+     [class.menu--open]="isMenuOpen()">
+
+  <div class="flex flex-direction-column menu__inner">
+    @for (item of navigation(); track item.label) {
+
+      @if (item.children) {
+        <div class="flex flex-direction-column menu__section">
+          <div class="menu__label">
+            {{ item.label }}
+          </div>
+
+          @for (child of item.children; track child.link) {
+            <a
+              class="menu__link menu__link--large menu__link--nested"
+              [routerLink]="child.link"
+              (click)="closeMenu()"
+            >
+              {{ child.label }}
+            </a>
+          }
+        </div>
+      } @else {
+        <a
+          class="menu__link menu__link--large"
+          [routerLink]="item.link"
+          (click)="closeMenu()"
+        >
+          {{ item.label }}
+        </a>
+      }
+    }
+  </div>
+</div>
+

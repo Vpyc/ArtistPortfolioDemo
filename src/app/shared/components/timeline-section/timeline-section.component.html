@@ -1,0 +1,33 @@
+<section class="timeline">
+  <div class="timeline__container">
+    <div class="timeline__item">
+
+      <div class="timeline__date">
+        {{ section().date | date:'yyyy' }}
+      </div>
+
+      <div class="timeline__content">
+
+        <div class="timeline__text">
+          <h3 class="timeline__item-title">
+            {{ section().title }}
+          </h3>
+
+          <p class="timeline__description">
+            {{ section().description }}
+          </p>
+        </div>
+
+        <div class="timeline__image-wrapper">
+          <img
+            [ngSrc]="section().image"
+            [alt]="section().title"
+            class="timeline__image"
+            fill
+          />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

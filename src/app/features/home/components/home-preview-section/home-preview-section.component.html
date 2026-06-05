@@ -1,0 +1,23 @@
+<section id="works" class="works">
+
+  @for (preview of previews(); track preview.slug; let i = $index) {
+    <div class="work" [class.even]="i % 2 === 0">
+
+      <div class="work__media">
+        <h2>{{ preview.title }}</h2>
+        <div appReveal class="image">
+          <img [ngSrc]="preview.imageUrl" [alt]="preview.title" fill />
+        </div>
+      </div>
+
+      <div class="work__info">
+        <p>{{ preview.description }}</p>
+
+        <a class="btn" [routerLink]="['/portfolio', preview.slug]">
+          Подробнее
+        </a>
+      </div>
+    </div>
+  }
+
+</section>

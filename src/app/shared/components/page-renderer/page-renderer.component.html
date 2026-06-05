@@ -1,0 +1,21 @@
+@for (group of page().groups; track $index) {
+
+  <section class="page-group"
+           [ngStyle]="{
+           'background-color': group.backgroundColor ? 'var(' + group.backgroundColor + ')' : null,
+           'color': group.textColor ? 'var(' + group.textColor + ')' : null
+         }">
+
+    @for (section of group.sections; track $index) {
+      <div appReveal class="page-section">
+        <ng-container
+          *ngComponentOutlet="getComponent(section);
+                      inputs: { section: section }">
+        </ng-container>
+      </div>
+    }
+
+  </section>
+}
+
+

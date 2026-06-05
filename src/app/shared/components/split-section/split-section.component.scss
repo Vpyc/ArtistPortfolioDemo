@@ -1,0 +1,48 @@
+.split {
+  display: flex;
+  gap: 3vw;
+  align-items: stretch;
+
+  &__image {
+    position: relative;
+    flex: 1;
+    min-height: 400px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &__line {
+    width: 2px;
+    background: currentColor;
+    align-self: stretch;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    &__content {
+      order: 1;
+      justify-items: center;
+      align-self: center;
+      text-align: center;
+    }
+
+    &__image {
+      order: 2;
+      min-height: 250px;
+    }
+
+    &__line {
+      display: none;
+    }
+  }
+}

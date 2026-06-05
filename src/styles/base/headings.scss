@@ -1,0 +1,28 @@
+@use 'abstracts/mixins' as mixins;
+
+h1, h2, h3 {
+  font-family: var(--font-serif), sans-serif;
+  margin: 0
+}
+
+h1 {
+  font-size: var(--text-h1-desktop);
+  line-height: var(--line-height-relaxed);
+  color: var(--background);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  line-height: var(--line-height-normal);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  line-height: var(--line-height-tight);
+}
+
+@include mixins.mobile {
+  h1 {
+    font-size: var(--text-h1-mobile);
+  }
+}

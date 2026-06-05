@@ -1,0 +1,83 @@
+<div class="contact-section">
+  <!-- Заголовок отдельно сверху -->
+  <div class="contact-header">
+    <h2 class="contact-title">Давайте создадим что-то прекрасное вместе</h2>
+    <p class="contact-subtitle">Свяжитесь со мной любым удобным способом или заполните форму</p>
+  </div>
+
+  <!-- Две колонки -->
+  <div class="contact-grid">
+
+    <!-- Левая колонка: Контакты -->
+    <div class="contact-info">
+      <h3 class="info-title">Контакты</h3>
+      <div class="info-list">
+        <div class="info-item">
+          <span class="info-label">Email:</span>
+          <a href="mailto:artist@example.com" class="info-value">{{'artist@example.com'}}</a>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Телефон:</span>
+          <a href="tel:+79990000000" class="info-value">+7 (999) 000-00-00</a>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Соцсети:</span>
+          <div class="social-links">
+            <a href="#" class="social-link">Telegram</a>
+            <a href="#" class="social-link">WhatsApp</a>
+            <a href="#" class="social-link">VK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Правая колонка: Форма (новый стиль) -->
+    <div class="contact-form-wrapper">
+      <form class="contact-form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name" class="form-label">Ваше имя</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="name"
+            placeholder="Как к вам обращаться?"
+            required
+            class="form-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="example@mail.ru"
+            required
+            class="form-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">Сообщение</label>
+          <textarea
+            id="message"
+            name="message"
+            [(ngModel)]="message"
+            placeholder="Расскажите о вашем проекте..."
+            rows="4"
+            required
+            class="form-input"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Отправить сообщение
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="image-section">
+  @if (section().title) {
+    <h2>{{ section().title }}</h2>
+  }
+
+  <div class="image">
+    <img [ngSrc]="section().image" alt="" fill/>
+  </div>
+
+  @if (section().description) {
+    <p>{{ section().description }}</p>
+  }
+</div>

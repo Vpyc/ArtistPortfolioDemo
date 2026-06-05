@@ -1,0 +1,46 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    var(--space-md)
+    var(--space-xl);
+
+  border: none;
+  border-radius: var(--radius);
+
+  cursor: pointer;
+
+  font: inherit;
+  text-decoration: none;
+
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  &--primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  &--outline {
+    border: 2px solid currentColor;
+    background: transparent;
+  }
+}

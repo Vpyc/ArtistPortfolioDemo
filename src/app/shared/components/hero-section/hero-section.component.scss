@@ -1,0 +1,61 @@
+.hero {
+  min-height: 95svh;
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 120px 24px 80px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  &--half {
+    min-height: 70svh;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 100%;
+    max-width: 900px;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 75svh;
+
+    padding:
+      60px
+      20px
+      48px;
+
+    &__content {
+      gap: 12px;
+    }
+  }
+}

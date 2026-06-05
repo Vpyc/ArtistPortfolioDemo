@@ -1,0 +1,46 @@
+:root {
+  /* spacing */
+
+  --space-2xs: 4px;
+  --space-xs: 10px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* spacing */
+
+  --gap-2xs: 4px;
+  --gap-xs: 10px;
+  --gap-sm: 12px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 28px;
+  --gap-2xl: 48px;
+
+  /* margin */
+
+  --margin-horizontal-auto: 0 auto;
+
+  /* radius */
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+
+  /* layout */
+
+  --container-width: 1200px;
+
+  /* z-index */
+  --z-index-close-button: 2000;
+  --z-index-nav-menu: 1000;
+  --z-index-header: 100;
+  --z-index-dropdown: 50;
+
+  /* transitions */
+
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.8s ease;
+}

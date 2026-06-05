@@ -1,0 +1,14 @@
+<section class="split">
+  <div class="split__image">
+    <img [ngSrc]="section().image" alt="" fill/>
+  </div>
+
+  @if (splitLine()) {
+    <div class="split__line"></div>
+  }
+
+  <div class="split__content">
+    <h2>{{ section().title }}</h2>
+    <p>{{ section().description }}</p>
+  </div>
+</section>

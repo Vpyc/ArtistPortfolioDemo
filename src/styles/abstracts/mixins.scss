@@ -1,0 +1,7 @@
+@use './breakpoints' as *;
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
